@@ -1,6 +1,10 @@
 [package]
-name = "taiwanfrp-agent"
+name = "taiwanfrp"
 version = "0.1.0"
 edition = "2024"
+description = "An FRP agent for TaiwanFRP"
 
 [dependencies]
+clap = { version = "4.6.6", features = ["derive"] }
+sys-locale = "0.3.2"
+toml = "1.1.5"
