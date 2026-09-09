@@ -3,6 +3,7 @@ mod i18n;
 mod language;
 
 use clap::Parser;
+use colored::Colorize;
 use std::io::{self, Write};
 
 #[derive(Parser)]
@@ -36,7 +37,7 @@ fn main() {
         }
 
         Err(_) => {
-            println!("{}", i18n.get("auth.credentials_not_found"));
+            println!("{}", i18n.get("auth.credentials_not_found").yellow());
 
             print!("{}", i18n.get("auth.username"));
             io::stdout().flush().unwrap();
