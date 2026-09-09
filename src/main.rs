@@ -40,11 +40,16 @@ fn main() {
 
             print!("{}", i18n.get("auth.username"));
             io::stdout().flush().unwrap();
+
             let mut username = String::new();
             io::stdin().read_line(&mut username).unwrap();
             let username = username.trim();
 
-            let password = rpassword::prompt_password(i18n.get("auth.password")).unwrap();
+            print!("{}", i18n.get("auth.password"));
+            io::stdout().flush().unwrap();
+
+            let password = rpassword::read_password().unwrap();
+
             credentials::save_credentials(username, &password).expect("Failed to save credentials");
             println!("{}", i18n.get("auth.credentials_saved"));
         }
